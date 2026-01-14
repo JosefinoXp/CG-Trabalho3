@@ -1822,6 +1822,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump/Levitate",
+                    "type": "Button",
+                    "id": "d732969a-26bd-4397-a045-8d2d19c1e65e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1910,6 +1919,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5e0390a-2a81-4687-8010-fc312f5ba09b",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Generic XR Controller",
+                    "action": "Jump/Levitate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

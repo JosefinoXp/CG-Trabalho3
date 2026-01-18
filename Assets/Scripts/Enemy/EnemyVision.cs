@@ -59,4 +59,10 @@ public class EnemyVision : MonoBehaviour
             canSeePlayer = false;
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow; // Cor Amarela para Visão
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
 }

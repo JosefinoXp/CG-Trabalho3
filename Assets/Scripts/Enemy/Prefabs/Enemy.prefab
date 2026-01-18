@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2816715088590718248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.792}
+  m_LocalPosition: {x: 0, y: 0, z: 0.805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -149,8 +149,8 @@ GameObject:
   - component: {fileID: 7950112849805258060}
   - component: {fileID: 5428588289438831463}
   - component: {fileID: 4795554594794503470}
+  - component: {fileID: 4159358906840504746}
   - component: {fileID: 133144678887567062}
-  - component: {fileID: 7182742747734140335}
   - component: {fileID: 7968843796146791212}
   - component: {fileID: 2992690174830389976}
   - component: {fileID: 1014413416654855977}
@@ -250,6 +250,39 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4159358906840504746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7536071487698010751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69feb9508952b9442a80df89acb0f071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 5428588289438831463}
+  matPatrol: {fileID: 2100000, guid: a1eb090819b4305479c198e7ac0020fe, type: 2}
+  matInvestigate: {fileID: 2100000, guid: 210217b2f9232aa44b349f1f869c490f, type: 2}
+  matChase: {fileID: 2100000, guid: 2ee2170ca19b8454eba44ad0f1c5835b, type: 2}
+  viewRadius: 20
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  firePoint: {fileID: 217116282492363605}
+  bulletPrefab: {fileID: 6870659610291207809, guid: 74cba74bfb801b9439aa43b696b670d8, type: 3}
+  attackRange: 15
+  fireRate: 1
+  accuracy: 80
+  damage: 10
+  bulletSpeed: 2
+  bulletSize: 0.75
+  wanderRadius: 15
+  waitTime: 2
 --- !u!195 &133144678887567062
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -272,22 +305,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7182742747734140335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7536071487698010751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45f8579ea2e4db45b39af128fbec009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
-  patrolMaterial: {fileID: 2100000, guid: a1eb090819b4305479c198e7ac0020fe, type: 2}
-  chaseMaterial: {fileID: 2100000, guid: 2ee2170ca19b8454eba44ad0f1c5835b, type: 2}
-  investigateMaterial: {fileID: 2100000, guid: 210217b2f9232aa44b349f1f869c490f, type: 2}
 --- !u!114 &7968843796146791212
 MonoBehaviour:
   m_ObjectHideFlags: 0

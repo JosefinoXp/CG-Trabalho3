@@ -72,16 +72,20 @@ using System.Collections;
 
 public class EnemyVision : MonoBehaviour
 {
-    // [HideInInspector] faz a variável ser pública pro código, mas invisível no Unity
     [HideInInspector] public float radius;
     [HideInInspector] public LayerMask targetMask;
     [HideInInspector] public LayerMask obstructionMask;
 
-    // Variáveis de leitura (essas podem ficar visíveis ou não, você decide)
     public bool canSeePlayer;
     public Transform playerTarget;
 
-    private void Start() { StartCoroutine(FOVRoutine()); }
+    // Altura dos olhos do inimigo (Ajuste para ele não olhar do pé)
+    private float eyeHeight = 1.6f;
+
+    private void Start()
+    {
+        StartCoroutine(FOVRoutine());
+    }
 
     private IEnumerator FOVRoutine()
     {
@@ -91,29 +95,65 @@ public class EnemyVision : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
-        // Lógica idêntica à anterior...
+        // 1. Detecta TODOS os colisores do player na área
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+
         if (rangeChecks.Length != 0)
         {
-            Transform target = rangeChecks[0].transform;
-            Vector3 dir = (target.position - transform.position).normalized;
-            float dst = Vector3.Distance(transform.position, target.position);
+            // Assumimos falso até provar o contrário neste frame
+            bool foundVisiblePart = false;
 
-            if (!Physics.Raycast(transform.position, dir, dst, obstructionMask))
+            // 2. Loop através de TODOS os colisores encontrados (Mão, Cabeça, Corpo)
+            foreach (Collider col in rangeChecks)
             {
-                canSeePlayer = true;
-                playerTarget = target;
+                Transform targetTransform = col.transform;
+
+                // IMPORTANTE PARA XR: 
+                // Usamos col.bounds.center em vez de targetTransform.position.
+                // Isso garante que miramos no meio do corpo/cabeça, e não no pé (pivot do XR rig).
+                Vector3 targetPosition = col.bounds.center;
+
+                // Ponto de origem da visão (ajustado para altura dos olhos do inimigo, se necessário)
+                // Se o pivot do inimigo for no chão, some Vector3.up * altura. 
+                // Se o pivot já for na cabeça, use transform.position direto.
+                Vector3 originPosition = transform.position + Vector3.up * 1.5f; // Ajuste 1.5f conforme altura do inimigo
+
+                Vector3 directionToTarget = (targetPosition - originPosition).normalized;
+                float distanceToTarget = Vector3.Distance(originPosition, targetPosition);
+
+                // Lança o raio
+                if (!Physics.Raycast(originPosition, directionToTarget, distanceToTarget, obstructionMask))
+                {
+                    // Achei pelo menos uma parte do corpo visível!
+                    canSeePlayer = true;
+                    playerTarget = targetTransform;
+                    foundVisiblePart = true;
+
+                    // Se já vi uma parte (ex: cabeça), não preciso checar o resto (ex: pé), economiza processamento
+                    break;
+                }
             }
-            else { canSeePlayer = false; }
+
+            // Se rodou todos os colisores e todos estavam bloqueados por parede
+            if (!foundVisiblePart)
+            {
+                canSeePlayer = false;
+            }
         }
-        else if (canSeePlayer) { canSeePlayer = false; }
+        else if (canSeePlayer)
+        {
+            // Jogador saiu do raio da esfera
+            canSeePlayer = false;
+        }
     }
 
-    // O Gizmo agora deve ser desenhado pelo script principal para não duplicar, 
-    // ou mantido aqui se preferir. Vou deixar aqui para garantir.
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
+
+        // Debug Visual do ponto de origem dos olhos (Opcional)
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position + Vector3.up * 1.5f, 0.1f);
     }
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -15,6 +17,13 @@ public class Enemy : MonoBehaviour
     // ========================================================================
     // PAINEL DE CONTROLE (Tudo que você edita fica aqui)
     // ========================================================================
+
+    #region 0. Vida
+    [Header("--- HP ---")]
+    [Tooltip("Defina quantidade de vida inimigo")]
+    [SerializeField] private float HP = 100;
+    private TextMeshProUGUI HpText;
+    #endregion
 
     #region 1. Visual & Referências
     [Header("--- VISUAL SETTINGS ---")]
@@ -107,6 +116,10 @@ public class Enemy : MonoBehaviour
         // Configurando Patrulha
         patrolModule.patrolRadius = wanderRadius;
         patrolModule.waitTimeAtPoint = waitTime;
+
+        //Configurando Vida
+        HpText = GetComponentInChildren<TextMeshProUGUI>();
+        HpText.text = "Vida:" + HP.ToString();
     }
 
     // ========================================================================
@@ -114,6 +127,9 @@ public class Enemy : MonoBehaviour
     // ========================================================================
     private void Update()
     {
+        if (HP <= 0) 
+        { Destroy(gameObject); }
+
         // Lê o estado do módulo de visão
         if (visionModule.canSeePlayer)
         {
@@ -198,6 +214,19 @@ public class Enemy : MonoBehaviour
     private void OnValidate()
     {
         if (attackRange > viewRadius) attackRange = viewRadius;
+    }
+
+    // ========================================================================
+    // LÓGICA DE DANO (HP)
+    // ========================================================================
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Bullet")
+        {
+            Destroy(collision.collider);
+            HP -= 20;
+            HpText.text = "Vida:" + HP.ToString();
+        }
     }
 
     // ========================================================================

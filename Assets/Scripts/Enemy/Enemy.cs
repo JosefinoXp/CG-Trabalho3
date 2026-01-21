@@ -221,7 +221,7 @@ public class Enemy : MonoBehaviour
     // ========================================================================
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Bullet")
+        if (collision.collider.tag == "PlayerBullet")
         {
             Destroy(collision.collider);
             HP -= 20;

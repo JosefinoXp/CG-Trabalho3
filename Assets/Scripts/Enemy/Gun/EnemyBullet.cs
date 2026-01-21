@@ -17,7 +17,8 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log($"Acertei o Player! Dano: {damage}");
-            // playerHealth.TakeDamage(damage);
+            HealthSystem playerHP = collision.gameObject.GetComponent<HealthSystem>();
+            playerHP.TakeDamage(damage);
         }
 
         // Destroi a bala ao bater em qualquer coisa

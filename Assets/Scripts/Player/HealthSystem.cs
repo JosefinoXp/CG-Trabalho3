@@ -1,40 +1,56 @@
 using UnityEngine;
+using System.Collections; // Necessário para Corrotinas
 
 public class HealthSystem : MonoBehaviour
 {
     [Header("Player Health")]
     [SerializeField] public float playerHP = 100;
-    private float maxHP; // Precisamos saber qual é o máximo para calcular a %
+    private float maxHP;
+
+    [Header("Regeneration Config")]
+    public float regenDelay = 7f;      // Tempo sem dano para começar a curar
+    public float regenRate = 5f;       // Quanto de vida cura por "tick"
+    public float regenFrequency = 0.1f; // A cada quanto tempo aplica a cura (menor = mais suave)
 
     [Header("Effects")]
-    public DamageScreenEffect damageEffect; // Referência ao novo script criado acima
+    public DamageScreenEffect damageEffect;
+
+    // Variável para guardar a referência da corrotina atual
+    private Coroutine currentRegenCoroutine;
 
     private void Start()
     {
-        // Define o HP atual como o máximo ao iniciar o jogo
         maxHP = playerHP;
-
-        // Garante que a tela comece transparente
         UpdateVisuals();
     }
 
     public void TakeDamage(float damage)
     {
         playerHP -= damage;
-        UpdateVisuals(); // Atualiza a tela vermelha
+
+        UpdateVisuals();
+
+        // 1. Se já existir uma tentativa de regeneração rodando, PARE-A.
+        // Isso "reseta" o contador de 7 segundos.
+        if (currentRegenCoroutine != null)
+        {
+            StopCoroutine(currentRegenCoroutine);
+        }
+
+        // 2. Se o player ainda estiver vivo, inicie uma nova contagem para regenerar
+        if (playerHP > 0)
+        {
+            currentRegenCoroutine = StartCoroutine(RegenHealthRoutine());
+        }
     }
 
     public void RestoreHealt(float HP)
     {
         playerHP += HP;
-
-        // Garante que não cure mais que o máximo
         if (playerHP > maxHP) playerHP = maxHP;
-
-        UpdateVisuals(); // Atualiza a tela vermelha (diminui o vermelho)
+        UpdateVisuals();
     }
 
-    // Função auxiliar para atualizar o efeito
     private void UpdateVisuals()
     {
         if (damageEffect != null)
@@ -47,9 +63,36 @@ public class HealthSystem : MonoBehaviour
     {
         if (playerHP <= 0)
         {
-            // Nota: É ideal garantir que isso só rode uma vez, mas mantive sua lógica original
+            // Para a regeneração se o player morrer
+            if (currentRegenCoroutine != null) StopCoroutine(currentRegenCoroutine);
+
             SceneDeath death = gameObject.GetComponent<SceneDeath>();
             if (death != null) death.PlayerDeath();
         }
+    }
+
+    // --- NOVA CORROTINA DE REGENERAÇÃO ---
+    private IEnumerator RegenHealthRoutine()
+    {
+        // Passo 1: Espera os 7 segundos (Delay)
+        yield return new WaitForSeconds(regenDelay);
+
+        // Passo 2: Começa a curar gradualmente
+        while (playerHP < maxHP)
+        {
+            playerHP += regenRate;
+
+            // Garante que não ultrapasse o máximo
+            if (playerHP > maxHP) playerHP = maxHP;
+
+            // Atualiza a tela vermelha (ela vai sumindo conforme cura)
+            UpdateVisuals();
+
+            // Espera um pouquinho antes de curar de novo (frequência)
+            yield return new WaitForSeconds(regenFrequency);
+        }
+
+        // Limpa a referência quando terminar
+        currentRegenCoroutine = null;
     }
 }

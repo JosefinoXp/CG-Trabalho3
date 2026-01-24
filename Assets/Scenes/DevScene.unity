@@ -4750,6 +4750,7 @@ MonoBehaviour:
   regenRate: 5
   regenFrequency: 0.1
   damageEffect: {fileID: 0}
+  playerUI: {fileID: 0}
 --- !u!4 &829005459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7090384238584796760, guid: 2b9579db8e2942746a38ede9c1765674, type: 3}
@@ -16179,7 +16180,7 @@ PrefabInstance:
       objectReference: {fileID: 479960315}
     - target: {fileID: 31882119747829199, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_VersionIndex
-      value: 50
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 1301876184233703125, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_Name
@@ -16228,6 +16229,10 @@ PrefabInstance:
     - target: {fileID: 3298269313503011516, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621919627466308810, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
+      propertyPath: playerUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5937428434519555120, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_Mesh

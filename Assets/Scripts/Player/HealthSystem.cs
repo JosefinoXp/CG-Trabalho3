@@ -1,5 +1,7 @@
+using LCDModule;
 using UnityEngine;
-using System.Collections; // Necessário para Corrotinas
+using System.Collections;
+using UnityEngine.Video; // Necessário para Corrotinas
 
 public class HealthSystem : MonoBehaviour
 {
@@ -18,9 +20,15 @@ public class HealthSystem : MonoBehaviour
     // Variável para guardar a referência da corrotina atual
     private Coroutine currentRegenCoroutine;
 
+    // PlayerUI
+    public UIPlayer playerUI;
+
     private void Start()
     {
         maxHP = playerHP;
+
+        playerUI = GetComponentInParent<UIPlayer>();
+
         UpdateVisuals();
     }
 
@@ -56,6 +64,9 @@ public class HealthSystem : MonoBehaviour
         if (damageEffect != null)
         {
             damageEffect.UpdateDamageOverlay(playerHP, maxHP);
+
+            // vida no UIPlayer (Interface da mao do jogador)
+            playerUI.SetHealth(playerHP);
         }
     }
 

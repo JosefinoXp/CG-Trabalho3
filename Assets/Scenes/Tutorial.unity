@@ -2058,6 +2058,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 425995007}
+    - target: {fileID: 31882119747829199, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
+      propertyPath: m_VersionIndex
+      value: 62
+      objectReference: {fileID: 0}
     - target: {fileID: 1301876184233703125, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_Name
       value: XR Interaction Setup

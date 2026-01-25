@@ -17,12 +17,15 @@ public class UIPlayer : MonoBehaviour
 
     public void SetHealth(float HP)
     {
-        ui.setRow1("Health: " + HP.ToString());
+        HPToChar(HP);
     }
 
-    //TODO AMMO
-    public void SetAmmo(int ammo)
+    public void HPToChar( float playerHealth )
     {
-        ui.setRow2("Ammo: " + ammo.ToString());
+        int hp_left = ((int)playerHealth) / 10;
+
+        string life_in_char = new string('ÿ', hp_left);
+
+        ui.setRow1("Health: " + life_in_char);
     }
 }

@@ -6,12 +6,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SceneDeath : MonoBehaviour
 {
-    [Header("Scene Settings")]
-    [Tooltip("Nome da cena para carregar após o grab.")]
+    // carrega a mesma cena
     public string sceneToLoad;
 
     // quad que esta no main camera do jogador
     public FadeScreen fadeScreen;
+
+    private void Awake()
+    {
+        sceneToLoad = SceneManager.GetActiveScene().name;
+    }
 
     public void PlayerDeath()
     {

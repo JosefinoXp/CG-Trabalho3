@@ -12,7 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - WEATHER_MAKER_DOWNSAMPLE_2
+  - WEATHER_MAKER_DOWNSAMPLE_4
   m_InvalidKeywords:
   - ORTHOGRAPHIC_MODE
   - WEATHER_MAKER_DEFERRED_SHADING

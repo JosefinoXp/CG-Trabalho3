@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62aa3dad63718da4384ff6bafd0ae0f1, type: 3}
   m_Name: WeatherMakerPerformanceProfile_VR_Fast
   m_EditorClassIdentifier: 
-  EnableVolumetricClouds: 1
+  EnableVolumetricClouds: 0
   VolumetricCloudFlatLayerMask: -1
   VolumetricCloudFlatLayerLod: 2
   VolumetricCloudDownsampleScale: 4

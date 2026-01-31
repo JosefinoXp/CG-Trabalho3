@@ -17,6 +17,16 @@ public class FireBulletOnActivate : MonoBehaviour
     public int ammo = 10;
 
     private int ammo_left;
+
+    [SerializeField]
+    public AudioSource shotAudio;
+    public AudioSource reloadAudio;
+
+    [SerializeField]
+    public Light shotLight;
+
+    [SerializeField]
+    public GameObject shotSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +46,9 @@ public class FireBulletOnActivate : MonoBehaviour
         ammo_left--;
 
         AmmoToChar();
+
+        ShotAudio();
+        StartCoroutine(ShotLight());
 
         GameObject spawnedBullet = Instantiate(bullet);
         spawnedBullet.transform.position = spawnPoint.position;
@@ -57,6 +70,8 @@ public class FireBulletOnActivate : MonoBehaviour
     {
         ammo_left = ammo;
 
+        ReloadAudio();
+
         AmmoToChar();
     }
 
@@ -65,5 +80,33 @@ public class FireBulletOnActivate : MonoBehaviour
         string ammo_in_char = new string('ÿ', ammo_left);
 
         LCDModule.setRow1("Ammo: " + ammo_in_char);
+    }
+
+    public void ShotAudio()
+    {
+        shotAudio.Play();
+    }
+
+    public void ReloadAudio()
+    {
+        reloadAudio.Play();
+    }
+
+    public IEnumerator ShotLight()
+    {
+        shotLight.enabled = true;
+
+        yield return ShotSprite();
+
+        shotLight.enabled = false;
+    }
+
+    public IEnumerator ShotSprite()
+    {
+        shotSprite.SetActive(true);
+
+        yield return new WaitForSeconds(0.3f);
+
+        shotSprite.SetActive(false);
     }
 }

@@ -58,7 +58,7 @@ MonoBehaviour:
   footOffset: {x: 0, y: 0, z: 0}
   footRotOffset: {x: -120, y: 180, z: 0}
   footYPosOffset: 0.1
-  rayStartYOffset: 0
+  rayStartYOffset: 0.5
   rayLength: 1.5
 --- !u!1 &784417300163370099
 GameObject:
@@ -479,7 +479,7 @@ MonoBehaviour:
   footOffset: {x: 0, y: 0, z: 0}
   footRotOffset: {x: -120, y: 180, z: 0}
   footYPosOffset: 0.1
-  rayStartYOffset: 0
+  rayStartYOffset: 0.5
   rayLength: 1.5
 --- !u!1 &7157088226895385889
 GameObject:

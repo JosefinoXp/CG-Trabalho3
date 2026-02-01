@@ -27,5 +27,7 @@ public class UIPlayer : MonoBehaviour
         string life_in_char = new string('ÿ', hp_left);
 
         ui.setRow1("Health: " + life_in_char);
+
+        ui.SetColor(Color.red);
     }
 }

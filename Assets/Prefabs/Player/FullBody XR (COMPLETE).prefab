@@ -932,11 +932,11 @@ PrefabInstance:
       objectReference: {fileID: 1494879520819927696}
     - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
       propertyPath: head.trackingPositionOffset.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
       propertyPath: head.trackingPositionOffset.z
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
       propertyPath: leftHand.trackingPositionOffset.x

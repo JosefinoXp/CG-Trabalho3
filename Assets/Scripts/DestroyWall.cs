@@ -8,12 +8,15 @@ public class DestroyWall : MonoBehaviour
     [SerializeField]
     public GameObject wall;
 
+    public AudioSource clip;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Throwable")
         {
+            clip.Play();
+
             Destroy(wall);
-            Destroy(this.gameObject);
         }
     }
 }

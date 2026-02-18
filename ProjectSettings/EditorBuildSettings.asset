@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial 3.1 Inimigos.unity
     guid: 7b031b397006a2844b086f50369a0f6c
+  - enabled: 1
+    path: Assets/Scenes/Fases/Fase 3.unity
+    guid: 9748c71a0e12c1647bcba66e3ffeacfd
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2657b9a4c70a4654bab454521ddbc8a9, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 18cbc600ce82c124dac4e1bb114625de, type: 2}

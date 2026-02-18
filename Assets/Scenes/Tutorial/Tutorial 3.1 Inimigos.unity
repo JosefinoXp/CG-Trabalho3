@@ -6919,6 +6919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenScreen Video
       objectReference: {fileID: 0}
+    - target: {fileID: 3836878934619299192, guid: 8d2e010f46b37d94bbae40d6ae3c2f7c, type: 3}
+      propertyPath: m_Looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4426911225820088509, guid: 8d2e010f46b37d94bbae40d6ae3c2f7c, type: 3}
       propertyPath: m_Enabled
       value: 0

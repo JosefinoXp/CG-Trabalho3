@@ -4902,6 +4902,10 @@ PrefabInstance:
       propertyPath: fadeScreen
       value: 
       objectReference: {fileID: 993722049}
+    - target: {fileID: 8634378343399357041, guid: fe316e37659660449979670651cdc793, type: 3}
+      propertyPath: sceneToLoad
+      value: Fase 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

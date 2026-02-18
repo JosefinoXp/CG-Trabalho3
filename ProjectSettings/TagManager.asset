@@ -8,6 +8,8 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - Mag
+  - Weapon
+  - Gun
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Player
   - Mag
   - PopCorn
-  - 
+  - Enemy
   - 
   - 
   - 

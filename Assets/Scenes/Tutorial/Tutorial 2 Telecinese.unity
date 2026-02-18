@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FullBody XR (NO VEST)
       objectReference: {fileID: 0}
+    - target: {fileID: 3132986126792433385, guid: bf9978826deeda74d8daf0da8cf06373, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3873444556717690702, guid: bf9978826deeda74d8daf0da8cf06373, type: 3}
       propertyPath: m_Mesh
       value: 

@@ -136,7 +136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 31882119747829199, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_VersionIndex
-      value: 65
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 355064320949930799, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_IsActive
@@ -277,6 +277,10 @@ PrefabInstance:
     - target: {fileID: 8718874870579585962, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
       propertyPath: m_DefaultParameters.m_ApertureSize
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718874870579585964, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -445,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: combat_vest
       objectReference: {fileID: 0}
+    - target: {fileID: 8777375308178068632, guid: adf6ca744d973a14c953a7ebdf637ed1, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -548,6 +556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2024948067331827450}
     m_Modifications:
+    - target: {fileID: 4026739026036274, guid: 77fc7c5609739684d9ed576a458c04a6, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 115264144247365450, guid: 77fc7c5609739684d9ed576a458c04a6, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -963,12 +975,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1494879520819927696}
     - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
+      propertyPath: head.trackingPositionOffset.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
       propertyPath: head.trackingPositionOffset.y
-      value: 0.2
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
       propertyPath: head.trackingPositionOffset.z
-      value: 0.2
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9196008427200394585, guid: 7386cc92fe6c0924cabb4f0365067784, type: 3}
       propertyPath: leftHand.trackingPositionOffset.x

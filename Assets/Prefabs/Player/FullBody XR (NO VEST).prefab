@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_DefaultParameters.m_ApertureSize
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 8718874870579585964, guid: 87109a3df57dfc249b54593477f1fac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

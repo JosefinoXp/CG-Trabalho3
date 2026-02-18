@@ -9,6 +9,13 @@ public class DestroyWall : MonoBehaviour
     public GameObject wall;
 
     public AudioSource clip;
+    public BoxCollider collider;
+
+    private void Awake()
+    {
+        collider = GetComponent<BoxCollider>();
+        clip = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +24,10 @@ public class DestroyWall : MonoBehaviour
             clip.Play();
 
             Destroy(wall);
+
+            collider.enabled = false;
+
+            other.gameObject.SetActive(false);
         }
     }
 }

@@ -227,6 +227,13 @@ public class Enemy : MonoBehaviour
             HP -= 20;
             HpText.text = "Vida:" + HP.ToString();
         }
+
+        // addded damage with throwables
+        if (collision.collider.tag == "Throwable")
+        {
+            HP -= 100;
+            HpText.text = "Vida:" + HP.ToString();
+        }
     }
 
     // ========================================================================

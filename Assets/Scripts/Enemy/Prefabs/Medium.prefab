@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 1014413416654855977}
   m_Layer: 0
   m_Name: Medium
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,8 +415,8 @@ MonoBehaviour:
   fireRate: 1
   accuracy: 80
   damage: 10
-  bulletSpeed: 2
-  bulletSize: 0.75
+  bulletSpeed: 10
+  bulletSize: 0.25
   wanderRadius: 15
   waitTime: 2
 --- !u!195 &133144678887567062
@@ -460,6 +460,7 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 1
+  faceTargetSpeed: 8
   canSeePlayer: 0
   playerTarget: {fileID: 0}
 --- !u!114 &2992690174830389976

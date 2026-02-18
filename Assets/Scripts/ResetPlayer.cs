@@ -22,6 +22,9 @@ public class ResetPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(GoToSceneRoutine());
+
+        if (other.tag == "Enemy")
+            Destroy(other.gameObject);
     }
 
     private IEnumerator GoToSceneRoutine()

@@ -1968,6 +1968,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 886e54e67bfe261448c5b27a3243ff9a, type: 3}
+--- !u!114 &197254271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2444594988877772910, guid: 886e54e67bfe261448c5b27a3243ff9a, type: 3}
+  m_PrefabInstance: {fileID: 197254270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3dd00d7b671c44789bc186a6bcde41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &284119456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7180,6 +7191,10 @@ PrefabInstance:
     - target: {fileID: 3836878934619299192, guid: 8d2e010f46b37d94bbae40d6ae3c2f7c, type: 3}
       propertyPath: m_Looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836878934619299192, guid: 8d2e010f46b37d94bbae40d6ae3c2f7c, type: 3}
+      propertyPath: m_AudioOutputMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4426911225820088509, guid: 8d2e010f46b37d94bbae40d6ae3c2f7c, type: 3}
       propertyPath: m_Enabled
@@ -14513,6 +14528,14 @@ PrefabInstance:
     - target: {fileID: 2869874668879603745, guid: fe316e37659660449979670651cdc793, type: 3}
       propertyPath: m_Name
       value: Power
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634378343399357041, guid: fe316e37659660449979670651cdc793, type: 3}
+      propertyPath: fadeScreen
+      value: 
+      objectReference: {fileID: 197254271}
+    - target: {fileID: 8634378343399357041, guid: fe316e37659660449979670651cdc793, type: 3}
+      propertyPath: sceneToLoad
+      value: Fase 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

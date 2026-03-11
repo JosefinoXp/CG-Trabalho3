@@ -11,6 +11,11 @@ public class LoadScene : MonoBehaviour
 
     public FadeScreen fadeScreen;
 
+    private void Awake()
+    {
+        fadeScreen = FindObjectOfType<FadeScreen>();
+    }
+
     public void ChangeScene()
     {
         StartCoroutine(GoToSceneRoutine());

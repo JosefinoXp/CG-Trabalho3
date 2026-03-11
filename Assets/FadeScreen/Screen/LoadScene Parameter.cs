@@ -11,6 +11,12 @@ public class LoadSceneParameter : MonoBehaviour
 
     public FadeScreen fadeScreen;
 
+    private void Awake()
+    {
+        fadeScreen = FindObjectOfType<FadeScreen>();
+    }
+
+
     public void ChangeScene(string NextScene)
     {
         sceneToLoad = NextScene;

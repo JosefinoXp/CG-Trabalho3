@@ -13,6 +13,11 @@ public class SceneTransitionOnGrab : MonoBehaviour
 
     private XRGrabInteractable grabInteractable;
 
+    private void Awake()
+    {
+        fadeScreen = FindObjectOfType<FadeScreen>();
+    }
+
     void Start()
     {
         // Obtém o componente XRGrabInteractable no objeto
